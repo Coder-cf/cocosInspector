@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; background: #1e1e1e; color: #ccc; height: 100vh; display: flex; flex-direction: column; }
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: #2d2d2d; border-bottom: 1px solid #404040; }
+        .header h1 { font-size: 13px; font-weight: 600; color: #fff; }
+        .btn { padding: 4px 12px; border: none; border-radius: 4px; cursor: pointer; font-size: 12px; background: #404040; color: #fff; }
+        .btn:hover { background: #505050; }
+        .search-box { padding: 6px 12px; background: #252525; border-bottom: 1px solid #404040; }
+        .search-box input { width: 100%; padding: 6px 10px; border: 1px solid #404040; border-radius: 4px; background: #1e1e1e; color: #fff; font-size: 12px; }
+        .search-box input:focus { outline: none; border-color: #0d84ff; }
+        .main-content { display: flex; flex: 1; overflow: hidden; }
+        .tree-panel { width: 280px; border-right: 1px solid #404040; display: flex; flex-direction: column; background: #252525; }
+        .property-panel { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+        .panel-header { display: flex; justify-content: space-between; padding: 8px 12px; background: #2d2d2d; border-bottom: 1px solid #404040; font-weight: 500; color: #fff; }
+        .tree-view { flex: 1; overflow: auto; padding: 4px 0; }
+        .tree-node { display: flex; align-items: center; padding: 3px 8px; cursor: pointer; white-space: nowrap; }
+        .tree-node:hover { background: #383838; }
+        .tree-node.selected { background: #0d84ff; color: #fff; }
+        .arrow { width: 14px; font-size: 9px; color: #666; text-align: center; cursor: pointer; }
+        .arrow.expandable:hover { color: #fff; }
+        .node-icon { margin-right: 4px; font-size: 12px; }
+        .node-name { overflow: hidden; text-overflow: ellipsis; }
+        .property-view { flex: 1; overflow: auto; padding: 10px; }
+        .empty-tip { color: #666; text-align: center; padding: 30px; font-style: italic; }
+        .property-section { background: #2d2d2d; border-radius: 6px; padding: 10px; margin-bottom: 10px; }
+        .property-title { font-weight: 600; color: #fff; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 1px solid #404040; }
+        .property-row { display: flex; align-items: center; margin-bottom: 6px; }
+        .property-row label { width: 60px; color: #aaa; flex-shrink: 0; font-size: 11px; }
+        .property-row input { flex: 1; padding: 4px 6px; border: 1px solid #404040; border-radius: 4px; background: #1e1e1e; color: #fff; font-size: 11px; }
+        .property-row input:focus { outline: none; border-color: #0d84ff; }
+        .input-group { display: flex; gap: 4px; flex: 1; }
+        .input-group input { min-width: 50px; }
+        .btn-primary { background: #0d84ff; color: #fff; width: 100%; padding: 6px; margin-top: 8px; }
+        .btn-primary:hover { background: #0b6cc9; }
+        .status-bar { padding: 4px 12px; background: #252525; border-top: 1px solid #404040; font-size: 10px; color: #888; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #1e1e1e; }
+        ::-webkit-scrollbar-thumb { background: #404040; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Cocos Debugger</h1>
+        <button id="refreshBtn" class="btn">刷新</button>
+    </div>
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="搜索节点...">
+    </div>
+    <div class="main-content">
+        <div class="tree-panel">
+            <div class="panel-header">
+                <span>节点树</span>
+                <span id="nodeCount">0</span>
+            </div>
+            <div id="treeView" class="tree-view">
+                <div class="empty-tip">加载中...</div>
+            </div>
+        </div>
+        <div class="property-panel">
+            <div class="panel-header">
+                <span>属性</span>
+            </div>
+            <div id="propertyView" class="property-view">
+                <div class="empty-tip">选择节点查看属性</div>
+            </div>
+        </div>
+    </div>
+    <div class="status-bar">
+        <span id="status">未连接</span>
+    </div>
+    <script src="devtools.js"></script>
+</body>
+</html>

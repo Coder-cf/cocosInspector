@@ -1,0 +1,311 @@
+/* Cocos Creator Debugger Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    font-size: 13px;
+    color: #333;
+    background: #1e1e1e;
+    min-width: 800px;
+    height: 600px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: #2d2d2d;
+    border-bottom: 1px solid #404040;
+}
+
+.header h1 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.search-box {
+    padding: 8px 16px;
+    background: #252525;
+    border-bottom: 1px solid #404040;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #404040;
+    border-radius: 4px;
+    background: #1e1e1e;
+    color: #fff;
+    font-size: 13px;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: #0d84ff;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.tree-panel {
+    width: 350px;
+    border-right: 1px solid #404040;
+    display: flex;
+    flex-direction: column;
+    background: #252525;
+}
+
+.property-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    background: #2d2d2d;
+    border-bottom: 1px solid #404040;
+    color: #fff;
+    font-weight: 500;
+}
+
+.panel-header span:last-child {
+    font-size: 11px;
+    color: #888;
+    font-weight: normal;
+}
+
+.tree-view {
+    flex: 1;
+    overflow: auto;
+    padding: 8px 0;
+}
+
+.tree-node {
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    cursor: pointer;
+    color: #ccc;
+    white-space: nowrap;
+}
+
+.tree-node:hover {
+    background: #383838;
+}
+
+.tree-node.selected {
+    background: #0d84ff;
+    color: #fff;
+}
+
+.arrow {
+    width: 16px;
+    font-size: 10px;
+    color: #666;
+    text-align: center;
+}
+
+.arrow.expandable {
+    cursor: pointer;
+    color: #888;
+}
+
+.arrow.expandable:hover {
+    color: #fff;
+}
+
+.node-icon {
+    margin-right: 6px;
+    font-size: 14px;
+}
+
+.node-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.property-view {
+    flex: 1;
+    overflow: auto;
+    padding: 12px;
+}
+
+.empty-tip {
+    color: #666;
+    text-align: center;
+    padding: 40px;
+    font-style: italic;
+}
+
+.property-section {
+    background: #2d2d2d;
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+.property-title {
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #404040;
+}
+
+.property-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.property-row label {
+    width: 80px;
+    color: #aaa;
+    flex-shrink: 0;
+}
+
+.property-row input[type="text"],
+.property-row input[type="number"] {
+    flex: 1;
+    padding: 6px 8px;
+    border: 1px solid #404040;
+    border-radius: 4px;
+    background: #1e1e1e;
+    color: #fff;
+    font-size: 12px;
+}
+
+.property-row input:focus {
+    outline: none;
+    border-color: #0d84ff;
+}
+
+.property-value {
+    color: #888;
+    font-size: 12px;
+}
+
+.property-row-group {
+    margin-bottom: 10px;
+}
+
+.property-row-group > label {
+    display: block;
+    color: #aaa;
+    margin-bottom: 4px;
+}
+
+.input-group {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.input-group input {
+    padding: 6px 8px;
+    border: 1px solid #404040;
+    border-radius: 4px;
+    background: #1e1e1e;
+    color: #fff;
+    font-size: 12px;
+    min-width: 60px;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #0d84ff;
+}
+
+.input-group input[type="color"] {
+    width: 40px;
+    height: 30px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+input[type="range"] {
+    flex: 1;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+
+.btn-primary {
+    background: #0d84ff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #0b6cc9;
+}
+
+.btn {
+    background: #404040;
+    color: #fff;
+}
+
+.btn:hover {
+    background: #505050;
+}
+
+.status-bar {
+    padding: 6px 16px;
+    background: #252525;
+    border-top: 1px solid #404040;
+    font-size: 11px;
+    color: #888;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #404040;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #505050;
+}

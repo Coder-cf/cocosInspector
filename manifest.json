@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Cocos Creator Debugger",
+  "version": "1.0.0",
+  "description": "解析并调试 Cocos Creator 游戏节点树",
+  "permissions": ["activeTab", "scripting", "tabs"],
+  "devtools_page": "devtools-entry.html",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["inject.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
